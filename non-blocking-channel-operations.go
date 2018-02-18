@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func main() {
 
@@ -26,6 +29,8 @@ func main() {
 	go func() {
 		signals <- "halo signal"
 	}()
+
+	time.Sleep(2 * time.Second)
 
 	select {
 	case msg := <-messages:
